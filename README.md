@@ -43,7 +43,7 @@ WITH message_rows as (
   DELETE FROM
       queue
   USING (
-      SELECT * FROM queue WHERE topic='topic1' AND status = 1 AND owner_organization = 'informa' order by create_date_time LIMIT 10 FOR UPDATE SKIP LOCKED
+      SELECT * FROM queue WHERE topic='topic1' AND status = 1 AND owner_organization = 'asdf' order by create_date_time LIMIT 10 FOR UPDATE SKIP LOCKED
   ) q
   WHERE q.sub_transaction_id = queue.sub_transaction_id RETURNING queue.*
 )
